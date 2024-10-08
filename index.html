@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data Privacy and Awareness Campaign</title>
+
+    <style>
+        body {
+            font-family: Verdana, sans-serif;
+            background-color: #f5f5f5;
+            color: #333333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 10px;
+        }
+
+        h1 {
+            color: #6b5b95;
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        form {
+            background-color: #ffffff;
+            padding: 35px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            font-size: 24px;
+            color: #015d00;
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        textarea {
+            width: 80%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 2px solid #6b5b95;
+            border-radius: 5px;
+            font-size: 16px;
+            font-family: Verdana, sans-serif;
+        }
+
+        input[type="submit"] {
+            background-color: #ff6f61;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-family: Verdana, sans-serif;
+            font-size: 18px; 
+        }
+
+        .result {
+            background-color: #ffffff;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .guide-questions {
+            background-color: #ffffff;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .guide-questions h2 {
+            color: #6b5b95;
+            font-size: 24px;
+        }
+
+        .guide-questions ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            color: #015d00;
+            margin-left: 20px;
+        }
+    </style>
+
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+    <link rel="icon" href="images/locklock.png" type="image/x-icon" sizes="96x96">
+</head>
+
+<body>
+    <h1>Data Privacy and Awareness Campaign</h1>
+    <form id="questionForm">
+        <label for="question">Enter your question:</label>
+        <textarea
+            id="question"
+            name="question"
+            rows="4"
+            required
+            placeholder="Enter your question here"
+        ></textarea>
+        <br>
+        <input type="submit" value="Submit" id="submitButton" />
+    </form>
+
+    <div id="guideQuestions" class="guide-questions">
+        <h2>You can ask the following questions:</h2>
+        <ul>
+            <li>What did you learn from the seminar?</li>
+            <br>
+            <li>What is the meaning of DPA?</li>
+            <br>
+            <li>What are the aims of DPA?</li>
+            <br>
+            <li>What is the role of the National Privacy Commission?</li>
+            <br>
+            <li>What are the responsibilities of the data subjects?</li>
+        </ul>
+    </div>
+
+    <div id="result" class="result" style="display: none"></div>
+
+    <py-script>
+        def answer_question(event):
+            event.preventDefault()
+            
+            question = Element('question').element.value.strip()
+            result_element = Element('result')
+            
+            # Predefined answers for specific questions
+            responses = {
+                "What did you learn from the seminar?": """Attending the Data Privacy and Awareness Campaign earlier today has truly opened my eyes to the importance of protecting our personal information. The reality is that our data plays a crucial role in how we interact with the world, both online and offline. It can be used in ways that benefit us, such as personalizing the ads we see on platforms like YouTube. However, there is a darker side to this, as our data can also be exploited by cybercriminals for malicious purposes. The most alarming example of this is how hackers or bad actors can gain access to our sensitive information—things like our bank credentials or even hijack our social media accounts to post inappropriate content.
+        
+        I learned that there are many tactics these criminals use to obtain personal data. Some of the most common ones include phishing, keyloggers, and malware. Phishing attacks usually come in the form of fake emails or messages that trick users into providing sensitive information, like passwords or credit card numbers. Keyloggers, on the other hand, silently record every keystroke made on a computer, capturing everything typed—including private information. Malware, which can be delivered through malicious downloads or infected websites, gives cybercriminals the ability to control systems or steal data without the user even realizing it.
+        
+        Despite the many tools available to protect our data, the sad truth is that there is no such thing as 100% security on the internet. One of the key points made during the campaign was that every action we take online leaves behind a digital footprint, a trace that can be used to track our movements or collect more data about us. This footprint makes us vulnerable to those with malicious intent. Even if we think we're being careful, such as by using incognito mode or a VPN, there are still ways to track and misuse our information.
+        
+        This brings up an interesting discussion about the limits of security. If a system were to be made perfectly secure, the data might become so locked down that even the user wouldn't be able to access it anymore. So, in reality, the goal is not to make our data completely unreachable but to find the balance between convenience and security—something that is secure enough to keep most threats out while still allowing us to use it effectively. It's a complex issue that makes me realize how much responsibility we carry when we use the internet. The choices we make, from the passwords we set to the websites we visit, all have the potential to affect our privacy in ways we may not fully understand.
+        
+        What struck me the most is that protecting our personal data is not just about safeguarding ourselves. It's about protecting others as well. A compromised account can lead to a chain reaction, where friends, family, or coworkers become targets as well. For example, if someone were to hack into my social media account, they could send malicious links to people I know, pretending to be me, and those people might unknowingly fall victim as well. In this sense, data privacy is a shared responsibility, and I think it's something we all need to be more aware of.
+        
+        In conclusion, the Data Privacy and Awareness Campaign has really made me think about how crucial it is to be mindful of our digital lives. It's easy to take our online security for granted, but the consequences of not being careful can be severe. By being more aware of the risks, using better security practices, and staying vigilant, we can all help minimize the chances of our data being misused. Ultimately, the internet is a double-edged sword, and while we can never be completely safe, we can take steps to reduce the danger.""",
+                "What is the meaning of DPA?": """The Data Privacy Act (DPA), particularly the Data Privacy Act of 2012 in the Philippines, also known as Republic Act 10173, was put in place to safeguard personal and sensitive information, whether in the public or private sectors. One of the key parts of this law is the creation of the National Privacy Commission, which is responsible for making sure that the law is being followed and properly implemented. Before any personal information can be processed, the law requires that explicit consent must first be given by the person whose data is involved. This act also emphasizes the rights of individuals, such as the right to access their own data, ask for corrections, and even request the deletion of their information in certain situations. If this law is violated, like when personal data is processed without authorization or if affected individuals aren't informed during a data breach, there are strict penalties, including fines of up to 5 million pesos or even imprisonment for more severe cases. Overall, the DPA is meant to ensure that personal information is treated responsibly and transparently, following international standards for data protection.""",
+                "What are the aims of DPA?": """The Data Privacy Act (DPA) of 2012 in the Philippines was made to protect individual privacy, all while allowing the free flow of information to help drive innovation and progress. The main objectives of the DPA include:
+        
+        1. Protection of Personal Data: This ensures that personal information, whether it's in government or private sectors, is kept secure and protected from unauthorized access or processing. It also gives individuals rights over their personal data, like being able to access, correct, and even request the deletion of their information.
+        
+        2. Accountability and Compliance: Organizations that handle personal data are required to be accountable for how they manage it. They need to implement security measures and follow the legal standards set by the law.
+        
+        3. Regulation of Data Processing: The DPA provides clear guidelines on how personal data should be collected, processed, and managed. It makes sure that all of this is done lawfully and transparently.
+        
+        4. Creation of Oversight Authority: The law established the National Privacy Commission, which is responsible for monitoring compliance with the DPA and enforcing penalties for any violations. This helps ensure that the Philippines follows international standards for data protection.""",
+                "What is the role of the National Privacy Commission?": """The National Privacy Commission (NPC) is an independent government body in the Philippines that was established under the Data Privacy Act of 2012 (Republic Act No. 10173). Its main purpose is to enforce and implement the law, making sure that international data protection standards are followed. The NPC has a variety of responsibilities, such as creating policies on personal data protection, ensuring that organizations comply with these policies, and addressing complaints about data privacy violations. Aside from that, the NPC also plays a key role in educating the public about their rights and responsibilities when it comes to data privacy, while also offering guidance to both public and private groups on how to protect personal information. The Commission has the authority to investigate, enforce compliance, and impose penalties on those who break the law, making sure that individuals' privacy is protected in this digital age.""",
+                "What are the responsibilities of the data subjects?": """Under the Data Privacy Act (DPA) of 2012 in the Philippines, individuals, known as data subjects, are granted several key rights and responsibilities regarding their personal information. These rights include:
+        
+        1. Right to be Informed: Data subjects must be notified if their personal information is being processed, including details about the purpose and extent of the processing.
+        
+        2. Right to Access: Individuals can request to access the personal data held by organizations, allowing them to check what information is being processed.
+        
+        3. Right to Object: Data subjects have the right to refuse the processing of their personal data, especially for uses like direct marketing.
+        
+        4. Right to Rectification: They can ask for corrections to any inaccurate or outdated personal information to ensure it stays correct.
+        
+        5. Right to Erasure or Blocking: Data subjects can request the deletion or blocking of their personal data if it's incomplete, outdated, or unlawfully gathered.
+        
+        6. Right to Data Portability: Individuals have the right to get a copy of their data in a structured and commonly used format, making it easier to transfer between service providers.
+        
+        7. Right to File Complaints: If they feel their rights under the DPA have been violated, data subjects can file complaints with the National Privacy Commission for proper action."""
+            }
+            
+            # Match the question and provide an answer
+            if question in responses:
+                result_element.element.innerHTML = f'<pre style="white-space: pre-wrap; word-wrap: break-word; color: #015d00; font-size: 18px; line-height: 1.6; font-family: Verdana, sans-serif; text-align: justify;">{responses[question]}</pre>'
+                result_element.element.style.display = "block"
+            else:
+                result_element.element.innerHTML = '<pre style="white-space: pre-wrap; word-wrap: break-word; color: red; font-size: 18px; margin-bottom: 20px; font-family: Verdana, sans-serif; text-align: justify;">Sorry, but I am unable to answer that question as it is either not covered in the topic that was discussed or I was not programmed to answer that question. Please make sure that you copy and paste any of the questions above to get the answer that you are looking for. Thank you for your understanding.</pre>'
+                result_element.element.style.display = "block"
+        
+        def setup():
+            Element('questionForm').element.onsubmit = answer_question
+        
+        setup()
+        </py-script>                        
+</body>
+</html>
